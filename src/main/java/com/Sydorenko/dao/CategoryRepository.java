@@ -21,9 +21,8 @@ public interface CategoryRepository extends CrudRepository<Categories,Long> {
 
     @Override
     void delete ( Categories categories );
-    @Transactional
-@Modifying(clearAutomatically = true)
-@Query("update Categories u set u.category =:newCategory where u.id:=id")
-    Stream updateCategories(@Param("newCategory") String category,@Param("id")int id );
+
+//@Query("update Categories u set u.category =:newCategory where u.id:=id")
+//    Stream updateCategories(@Param("newCategory") String category,@Param("id")int id );
 
 }

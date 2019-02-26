@@ -11,8 +11,8 @@ Categories findByCategory(String category);
 Categories save(Categories categories);
 Categories findById(int id);
 void remove(Categories categories);
-@Transactional
-void update(String category,int id);
+//@Transactional
+//void update(String category,int id);
 
 
 

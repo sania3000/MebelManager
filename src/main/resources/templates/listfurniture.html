@@ -28,7 +28,7 @@
     <br/><br/>
     <h1>Create a Furniture:</h1>
 
-    <form th:action= "@{/add/(id={category.id})}"
+    <form th:action= "@{/listfurniture/{id}(id={category.id})}"
           th:object="${furnitureform}"method="POST">
 
         <br/>

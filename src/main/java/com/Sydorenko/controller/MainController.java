@@ -92,7 +92,7 @@ public class MainController {
     @PostMapping(value = {"/updatecategory"})
     public String updateCategory ( @ModelAttribute Categories categories ) {
 
-        categoryService.update(categories.getCategory(),categories.getId());
+//        categoryService.update(categories.getCategory(),categories.getId());
         return "redirect:/listcategories";
     }
 
@@ -108,8 +108,8 @@ public class MainController {
 
     }
 
-    @PostMapping(value = {"/add"})
-    public String saveFurniture ( Model model, @RequestParam("id") int id, @ModelAttribute("furnitureform") FurnitureForm furnitureForm ) {
+    @PostMapping(value = "/listfurniture/{id}")
+    public String saveFurniture ( Model model, @PathVariable("id") int id, @ModelAttribute("furnitureform") FurnitureForm furnitureForm ) {
         String title = furnitureForm.getTitle();
         int price = furnitureForm.getPrice();
         Categories category = categoryService.findById(id);
@@ -120,7 +120,7 @@ public class MainController {
             newFurniture.setPrice(price);
             newFurniture.setCategories(category);
             furnitureService.save(newFurniture);
-            return "redirect:/listfurniture";
+            return "redirect:/listfurniture"+newFurniture.getCategories();
         } else
             model.addAttribute("errorMessage", errorMessage);
         return "listfurniture";

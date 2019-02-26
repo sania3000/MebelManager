@@ -36,12 +36,12 @@ public class CategoryServiceImpl implements CategoryService {
     public void remove ( Categories categories ) {
     categoryRepository.delete(categories);
     }
-@Transactional
-    @Override
-    public void update (String category, int id ) {
-        categoryRepository.updateCategories(category,id);
 
-    }
+//    @Override
+//    public void update (String category, int id ) {
+//        categoryRepository.updateCategories(category,id);
+
+//    }
 
 
 
