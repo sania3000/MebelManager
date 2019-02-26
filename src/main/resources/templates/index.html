@@ -1,0 +1,18 @@
+<!DOCTYPE HTML>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8" />
+    <title >Welcome</title>
+    <link rel="stylesheet" type="text/css" th:href="@{/css/style.css}"/>
+</head>
+<body bgcolor="#cfcfcf">
+<h1  align="center" style="color:black;" >Welcome</h1>
+
+<h2 align="center" th:utext="${message}">..!..</h2>
+
+<h3 align="center" ><a th:href="@{/listcategories}">Categories</a></h3>
+
+</body>
+
+</html>
+

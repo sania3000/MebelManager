@@ -1,0 +1,50 @@
+<!DOCTYPE HTML>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8" />
+    <title>Category List</title>
+    <link rel="stylesheet" type="text/css" th:href="@{/css/style.css}"/>
+</head>
+<body bgcolor="#cfcfcf">
+<h1 align="center">Categories</h1>
+<div>
+    <table align="center" border="1">
+        <tr>
+            <th  width="150"> Category</th>
+            <th width="30"> Edit</th>
+            <th width="30"> Delete</th>
+
+        <tr th:each ="category : ${categories}">
+        <td width="200"><a th:href="@{listfurniture/{id}(id=${category.id})}" th:utext ="${category.category}"></a></td>
+        <td bgcolor="FF9999"><a th:href ="@{edit/{id}(id=${category.id})}" th:utext= edit></a></td>
+        <td bgcolor="FF9999"><a th:href="@{delete/{id}(id=${category.id})}" th:utext= delete></a></td>
+
+        </tr>
+    </table>
+</br>
+
+
+    <h2 align="center">Create Category:</h2>
+
+ <h3 align="center" style="color:red">   <form th:action="@{addcategory}"
+          th:object="${categoryform}" method="POST">
+
+        <br/>
+        Category:
+        <input type="text" th:field="*{category}" />
+        <br/>
+
+        <input  type="submit" value="Create" />
+    </form>
+</h3>
+    <br/>
+
+    <!-- Check if errorMessage is not null and not empty -->
+    <div th:if="${errorMessage}" th:utext="${errorMessage}"
+         style="color:red;font-style:italic;">
+        ...
+    </div>
+
+</div>
+</body>
+</html>

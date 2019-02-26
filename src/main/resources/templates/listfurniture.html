@@ -1,0 +1,64 @@
+<!DOCTYPE HTML>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8" />
+    <title>Furniture List</title>
+    <link rel="stylesheet" type="text/css" th:href="@{/css/style.css}"/>
+</head>
+<body>
+<h1>Furniture List</h1>
+
+<br/><br/>
+<div>
+    <table border="1">
+        <tr>
+            <th width="150">Title</th>
+            <th width="75">Price,uah</th>
+
+
+        </tr>
+        <tr th:each ="furniture : ${furnitures}">
+            <td th:utext="${furniture.title}">...</td>
+            <td th:utext="${furniture.price}">...</td>
+
+
+
+        </tr>
+    </table>
+    <br/><br/>
+    <h1>Create a Furniture:</h1>
+
+    <form th:action= "@{/add/(id={category.id})}"
+          th:object="${furnitureform}"method="POST">
+
+        <br/>
+        Title:
+        <input type="text" th:field="*{title}" />
+        <br/>
+        <br/>
+        Price:
+        <input type="text" th:field="*{price}" />
+
+
+
+        <br/>
+        <br/>
+
+
+        <input type="submit" value="Create" />
+    </form>
+
+    <br/>
+
+    <!-- Check if errorMessage is not null and not empty -->
+    <div th:if="${errorMessage}" th:utext="${errorMessage}"
+         style="color:red;font-style:italic;">
+        ...
+    </div>
+
+
+
+
+</div>
+</body>
+</html>
