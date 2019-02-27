@@ -20,6 +20,8 @@ Furnitures findByTitle(String title);
 Furnitures findById ( int id );
 
 List<Furnitures> findByCategories(Categories categories);
+
+void delete(Furnitures furnitures);
 //@Transactional
 //@Query("select f from Furnitures f where f.categories=:id ")
 //    Stream<Furnitures> findByCategories( @Param ("id") Categories categories );

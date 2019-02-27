@@ -14,6 +14,7 @@ public interface FurnitureService {
 
   List<Furnitures> findByCategory( Categories categories );
     Furnitures findById(int id );
+    void remove(Furnitures furnitures);
 
 
 }

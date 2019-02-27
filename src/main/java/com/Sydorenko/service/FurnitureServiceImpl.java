@@ -44,4 +44,9 @@ public class FurnitureServiceImpl implements FurnitureService {
     public List<Furnitures> findByCategory ( Categories categories ) {
         return  furnitureRepository.findByCategories(categories);
     }
+
+    @Override
+    public void remove ( Furnitures furnitures ) {
+        furnitureRepository.delete(furnitures);
+    }
 }

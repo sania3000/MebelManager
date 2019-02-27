@@ -17,6 +17,7 @@ import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.*;
 import org.springframework.web.servlet.ModelAndView;
 
+import javax.servlet.http.HttpServletRequest;
 import javax.websocket.server.PathParam;
 import java.util.Date;
 
@@ -97,34 +98,39 @@ public class MainController {
     }
 
 
-    @GetMapping(value = "/listfurniture/{id}")
+    @GetMapping(value = {"listfurniture/{id}"})
     public String furnitureList ( @PathVariable("id") int id, Model model ) {
+        model.addAttribute("categories",categoryService.findById(id));
         model.addAttribute("furnitures", furnitureService.findByCategory(categoryService.findById(id)));
-
         FurnitureForm furnitureForm = new FurnitureForm();
         model.addAttribute("furnitureform", furnitureForm);
 
         return "listfurniture";
-
     }
 
-    @PostMapping(value = "/listfurniture/{id}")
-    public String saveFurniture ( Model model, @PathVariable("id") int id, @ModelAttribute("furnitureform") FurnitureForm furnitureForm ) {
+    @PostMapping(value = {"listfurniture/addfurniture/{id}"})
+    public String saveFurniture (Model model,@PathVariable("id")int id, @ModelAttribute("furnitureform") FurnitureForm furnitureForm ) {
         String title = furnitureForm.getTitle();
         int price = furnitureForm.getPrice();
-        Categories category = categoryService.findById(id);
+        Categories categories=categoryService.findById(id);
 
         if (title != null && price != 0) {
             Furnitures newFurniture = new Furnitures();
             newFurniture.setTitle(title);
             newFurniture.setPrice(price);
-            newFurniture.setCategories(category);
+            newFurniture.setCategories(categories);
             furnitureService.save(newFurniture);
-            return "redirect:/listfurniture"+newFurniture.getCategories();
+            return "redirect:/listfurniture/"+id;
         } else
             model.addAttribute("errorMessage", errorMessage);
         return "listfurniture";
     }
 
+    @GetMapping(value = {"listfurniture/deletef/{id}"})
+    public String deleteFurniture ( @PathVariable(value = "id") int id,HttpServletRequest request ) {
 
+        furnitureService.remove(furnitureService.findById(id));
+
+        return "redirect:"+request.getHeader("Referer");
+    }
 }
