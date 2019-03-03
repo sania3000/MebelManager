@@ -99,7 +99,10 @@
             <version>3.19.0-GA</version>
         </dependency>
 
-
+        <dependency>
+            <groupId>org.springframework.boot</groupId>
+            <artifactId>spring-boot-starter-security</artifactId>
+        </dependency>
 
     </dependencies>
 

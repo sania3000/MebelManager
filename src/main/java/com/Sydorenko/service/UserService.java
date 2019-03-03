@@ -2,6 +2,7 @@ package com.Sydorenko.service;
 
 import com.Sydorenko.model.User;
 
+
 import java.util.List;
 
 /**
@@ -12,6 +13,8 @@ public interface UserService {
     List<User> getList();
     User findByEmail(String email);
     User save(User user);
+    User findById(int id);
+    void delete( User user );
 
 }
 

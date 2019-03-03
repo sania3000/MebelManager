@@ -1,0 +1,33 @@
+<!DOCTYPE HTML>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8" />
+    <title>Category List</title>
+    <link rel="stylesheet" type="text/css" th:href="@{/css/style.css}"/>
+</head>
+<body bgcolor="#cfcfcf">
+<h1 align="center">Users</h1>
+<div>
+    <table align="center" border="1">
+        <tr>
+            <th  width="150"> Name</th>
+            <th  width="150"> Email</th>
+            <th  width="150"> Role</th>
+
+            <th width="30"> Edit</th>
+            <th width="30"> Delete</th>
+
+        <tr th:each ="user : ${users}">
+            <td width="200"><a th:utext ="${user.name}"></a></td>
+            <td width="200"><a th:utext ="${user.email}"></a></td>
+            <td width="200"><a th:utext ="${user.roles}"></a></td>
+
+            <td bgcolor="FF9999"><a th:href ="@{user/{id}(id=${user.id})}" th:utext= edit></a></td>
+            <td bgcolor="FF9999"><a th:href="@{user/delete/{id}(id=${user.id})}" th:utext= delete></a></td>
+
+        </tr>
+    </table>
+    </br>
+</div>
+</body>
+</html>

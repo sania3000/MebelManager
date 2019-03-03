@@ -4,7 +4,9 @@ public class UserForm {
     String name;
     String email;
     String password;
+    String confirmPassword;
     String address;
+    String role;
 
     public String getName () {
         return name;
@@ -36,5 +38,21 @@ public class UserForm {
 
     public void setAddress ( String address ) {
         this.address = address;
+    }
+
+    public String getRole () {
+        return role;
+    }
+
+    public void setRole ( String role ) {
+        this.role = role;
+    }
+
+    public String getConfirmPassword () {
+        return confirmPassword;
+    }
+
+    public void setConfirmPassword ( String confirmPassword ) {
+        this.confirmPassword = confirmPassword;
     }
 }

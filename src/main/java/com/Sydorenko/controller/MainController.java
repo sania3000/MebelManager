@@ -80,22 +80,22 @@ public class MainController {
         return "redirect:/listcategories";
     }
 
-    @GetMapping(value = {"/edit/{id}"})
-    public String editCategory ( @PathVariable(value = "id") int id, Model model ) {
+//    @GetMapping(value = {"/edit/{id}"})
+//    public String editCategory ( @PathVariable(value = "id") int id, Model model ) {
+//
+//        model.addAttribute("categories", categoryService.findById(id));
+//
+//
+//        return "updatecategory";
+//
+//    }
 
-        model.addAttribute("categories", categoryService.findById(id));
-
-
-        return "updatecategory";
-
-    }
-
-    @PostMapping(value = {"/updatecategory"})
-    public String updateCategory ( @ModelAttribute Categories categories ) {
-
-//        categoryService.update(categories.getCategory(),categories.getId());
-        return "redirect:/listcategories";
-    }
+//    @PostMapping(value = {"/updatecategory"})
+//    public String updateCategory ( @ModelAttribute Categories categories ) {
+//
+////        categoryService.update(categories.getCategory(),categories.getId());
+//        return "redirect:/listcategories";
+//    }
 
 
     @GetMapping(value = {"listfurniture/{id}"})

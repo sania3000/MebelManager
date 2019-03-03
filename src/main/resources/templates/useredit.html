@@ -6,16 +6,20 @@
     <link rel="stylesheet" type="text/css" th:href="@{/css/style.css}"/>
 </head>
 <body>
-<h1>Update Category:</h1>
+<h1>Update User</h1>
 
-<form  th:action="@{/updatecategory}"
-      th:object="${categories}" method="POST">
-    Category:
-    <input type="text" th:field="*{category}" value="${category.category}" />
-    <br/>
+<form  th:action="@{/user?(id=${user.id})}"method="post"
+        th:object="${user}">
 
-    <br/>
-    <input type="submit" value="Update" />
+    <input type="text" th:field="*{name}" value="${user.name}"/>
+
+   <!--<tr th:each ="role:${roles}">-->
+
+   <!--<input type="checkbox" name="role" th:checked="${user.role}" />${role}-->
+
+    <button type="submit">Save</button>
+
+
 </form>
 
 <br/>
