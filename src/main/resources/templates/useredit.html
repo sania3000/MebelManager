@@ -8,15 +8,16 @@
 <body>
 <h1>Update User</h1>
 
-<form  th:action="@{/user?(id=${user.id})}"method="post"
+<form  th:action="@{/user}"method="post"
         th:object="${user}">
 
     <input type="text" th:field="*{name}" value="${user.name}"/>
+    <input type="hidden" th:field="*{id}"value="${user.id}"/>
 
-   <!--<tr th:each ="role:${roles}">-->
-
-   <!--<input type="checkbox" name="role" th:checked="${user.role}" />${role}-->
-
+    <div th:each="role : ${roles}">
+        <input type="checkbox" th:name="${role}" th:checked="${#arrays.contains(user.roles, role)}">﻿
+        <label th:text="${role}" /></label>
+    </div>﻿
     <button type="submit">Save</button>
 
 

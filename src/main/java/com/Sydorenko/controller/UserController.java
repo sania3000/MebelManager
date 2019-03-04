@@ -8,6 +8,11 @@ import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.*;
 
+import java.util.Arrays;
+import java.util.Map;
+import java.util.Set;
+import java.util.stream.Collectors;
+
 @Controller
 @RequestMapping("/user")
 public class UserController {
@@ -18,18 +23,25 @@ public class UserController {
         model.addAttribute("users",userService.getList());
         return "userlist";
     }
-    @GetMapping("{id}")
-    public String userEditForm( @PathVariable int id, Model model ){
-        model.addAttribute("user",userService.findById(id));
+    @GetMapping("{user}")
+    public String userEditForm( @PathVariable User user, Model model ){
+        model.addAttribute("user",user);
         model.addAttribute("roles",Role.values());
 
         return "useredit";
     }
     @PostMapping
-    public String userUpdate(@RequestParam int id,@ModelAttribute User user){
-    User user1=userService.findById(id);
-    user1.setName(user.getName());
-    userService.save(user1);
+    public String userUpdate(@RequestParam("id") User user,@RequestParam String name,@RequestParam Map<String,String> form){
+    user.setName(name);
+    Set<String> roles=Arrays.stream(Role.values()).map(Role::name).collect(Collectors.toSet());
+    user.getRoles().clear();
+    for (String key:form.keySet()){
+        if (roles.contains(key)){
+            user.getRoles().add(Role.valueOf(key));
+        }
+    }
+
+    userService.save(user);
 
         return "redirect:/user";
 }
