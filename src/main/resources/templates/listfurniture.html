@@ -6,8 +6,9 @@
     <link rel="stylesheet" type="text/css" th:href="@{/css/style.css}"/>
 </head>
 <body bgcolor="#cfcfcf">
-<h1 align="center" ><a th:href="@{/listcategories}">Back to categories</a></h1>
+<h1 align="center" ><a th:href="@{/categories}">Back to categories</a></h1>
 <h1>Furniture List</h1>
+
 
 <br/><br/>
 <div>
@@ -22,8 +23,8 @@
         <tr th:each ="furniture : ${furnitures}">
             <td th:utext="${furniture.title}">...</td>
             <td th:utext="${furniture.price}">...</td>
-            <td bgcolor="FF9999"><a th:href ="@{edit/{id}(id=${furniture.id})}" th:utext= edit></a></td>
-            <td bgcolor="FF9999"><a th:href="@{deletef/{id}(id=${furniture.id})}" th:utext= delete></a></td>
+            <td bgcolor="FF9999"><a th:href ="@{/edit/{id}(id=${furniture.id})}" th:utext= edit></a></td>
+            <td bgcolor="FF9999"><a th:href="@{delete/{id}(id=${furniture.id})}" th:utext= delete></a></td>
 
 
         </tr>

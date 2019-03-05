@@ -6,6 +6,7 @@ import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
 import org.springframework.security.authentication.AuthenticationManager;
 import org.springframework.security.config.annotation.authentication.builders.AuthenticationManagerBuilder;
+import org.springframework.security.config.annotation.method.configuration.EnableGlobalMethodSecurity;
 import org.springframework.security.config.annotation.web.builders.HttpSecurity;
 import org.springframework.security.config.annotation.web.configuration.EnableWebSecurity;
 import org.springframework.security.config.annotation.web.configuration.WebSecurityConfigurerAdapter;
@@ -16,19 +17,24 @@ import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.security.provisioning.InMemoryUserDetailsManager;
 
+import javax.sql.DataSource;
+
 @Configuration // аннотация помечающая класс для конфигурации spring context
 @EnableWebSecurity // включение механизма безопасности
+@EnableGlobalMethodSecurity(prePostEnabled = true)//ограничение доступа к страницам
 public class WebSecurityConfig extends WebSecurityConfigurerAdapter { // расшираем базовую настройку безопасности
 
     // Наш сервис который переопределяет базовую реализацию для авторизации.
     @Autowired
     private UserDetailsServiceImpl userDetailsService;
-
+    @Autowired
+    private DataSource dataSource;
     // Глобальная конфигурация для аутентификации.
     @Autowired
     public void configureGlobal( AuthenticationManagerBuilder auth) throws Exception {
         auth.userDetailsService(userDetailsService)
                 .passwordEncoder(encoder());// определяем шифрование пароля
+
     }
 
     @Bean // Шифратор паролей
@@ -58,6 +64,7 @@ public class WebSecurityConfig extends WebSecurityConfigurerAdapter { // рас�
                 .and()
                     .logout() // блок для logout
                     .permitAll();
+        http.exceptionHandling().accessDeniedPage("/403");
     }
 
 

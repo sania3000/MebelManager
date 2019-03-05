@@ -2,6 +2,8 @@
 <html xmlns:th="http://www.thymeleaf.org">
 <head>
     <meta charset="UTF-8" />
+    <h1 align="center" ><a th:href="@{/user}">Back to Users</a></h1>
+    <h1 align="center" ><a th:href="@{/index}">Back to Main Page</a></h1>
     <title>Category List</title>
     <link rel="stylesheet" type="text/css" th:href="@{/css/style.css}"/>
 </head>
@@ -15,8 +17,8 @@
             <th width="30"> Delete</th>
 
         <tr th:each ="category : ${categories}">
-        <td width="200"><a th:href="@{listfurniture/{id}(id=${category.id})}" th:utext ="${category.category}"></a></td>
-        <td bgcolor="FF9999"><a th:href ="@{edit/{id}(id=${category.id})}" th:utext= edit></a></td>
+        <td width="200"><a th:href="@{furniture/{id}(id=${category.id})}" th:utext ="${category.category}"></a></td>
+        <td bgcolor="FF9999"><a th:href ="@{category/{id}(id=${category.id})}" th:utext= edit></a></td>
         <td bgcolor="FF9999"><a th:href="@{delete/{id}(id=${category.id})}" th:utext= delete></a></td>
 
         </tr>

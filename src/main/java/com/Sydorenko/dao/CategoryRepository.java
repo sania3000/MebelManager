@@ -17,12 +17,11 @@ public interface CategoryRepository extends CrudRepository<Categories,Long> {
     Categories findByCategory(String category);
     Categories save(Categories categories);
 
-    Categories findById ( int id );
+    Categories findById ( long id );
 
     @Override
     void delete ( Categories categories );
 
-//@Query("update Categories u set u.category =:newCategory where u.id:=id")
-//    Stream updateCategories(@Param("newCategory") String category,@Param("id")int id );
+
 
 }

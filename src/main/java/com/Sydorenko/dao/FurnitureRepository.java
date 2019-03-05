@@ -17,11 +17,17 @@ public interface FurnitureRepository extends CrudRepository<Furnitures,Long> {
 
 Furnitures findByTitle(String title);
 
-Furnitures findById ( int id );
+Furnitures findById ( long id );
 
 List<Furnitures> findByCategories(Categories categories);
 
 void delete(Furnitures furnitures);
+
+
+    @Override
+    void deleteAll ( Iterable<? extends Furnitures> iterable );
+
+
 //@Transactional
 //@Query("select f from Furnitures f where f.categories=:id ")
 //    Stream<Furnitures> findByCategories( @Param ("id") Categories categories );

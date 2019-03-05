@@ -9,7 +9,7 @@ public interface CategoryService {
 List<Categories> getAll();
 Categories findByCategory(String category);
 Categories save(Categories categories);
-Categories findById(int id);
+Categories findById(long id);
 void remove(Categories categories);
 //@Transactional
 //void update(String category,int id);

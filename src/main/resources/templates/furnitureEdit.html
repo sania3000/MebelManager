@@ -1,0 +1,25 @@
+<!DOCTYPE HTML>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8" />
+    <title>Update</title>
+    <link rel="stylesheet" type="text/css" th:href="@{/css/style.css}"/>
+</head>
+<body>
+<h1>Update Category</h1>
+
+<form  th:action="@{/editfurniture}"method="post"
+       th:object="${furnitures}">
+
+    <input type="text" th:field="*{title}" value="${furniture.title}"/>
+
+    <input type="text" th:field="*{price}" value="${furniture.price}"/>
+
+    <input type="hidden" th:field="*{id}"value="${furniture.id}"/>
+    <input type="hidden" th:field="*{categories}"value="${furniture.categories}"/>
+
+
+    <button type="submit">Save</button>
+
+
+</form>

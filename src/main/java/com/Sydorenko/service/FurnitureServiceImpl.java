@@ -4,13 +4,12 @@ import com.Sydorenko.dao.CategoryRepository;
 import com.Sydorenko.dao.FurnitureRepository;
 import com.Sydorenko.model.Categories;
 import com.Sydorenko.model.Furnitures;
-import org.hibernate.boot.jaxb.hbm.internal.CacheAccessTypeConverter;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
 import java.util.List;
-import java.util.stream.Collectors;
+import java.util.Optional;
 
 @Service
 public class FurnitureServiceImpl implements FurnitureService {
@@ -31,7 +30,7 @@ public class FurnitureServiceImpl implements FurnitureService {
 
 
     @Override
-    public Furnitures findById ( int id ) {
+    public Furnitures findById ( long id ) {
         return furnitureRepository.findById(id);
     }
 
@@ -48,5 +47,10 @@ public class FurnitureServiceImpl implements FurnitureService {
     @Override
     public void remove ( Furnitures furnitures ) {
         furnitureRepository.delete(furnitures);
+    }
+
+    @Override
+    public void deleteAll ( List<Furnitures> list ) {
+        furnitureRepository.deleteAll(list);
     }
 }

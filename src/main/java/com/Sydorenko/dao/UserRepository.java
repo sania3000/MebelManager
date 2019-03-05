@@ -12,7 +12,7 @@ import java.util.List;
 public interface UserRepository extends CrudRepository<User,Long> {
     List<User> findAll();
 User findByEmail(String email);
-User findById(int id);
+User findById(long id);
 void delete(User user);
 
 }
