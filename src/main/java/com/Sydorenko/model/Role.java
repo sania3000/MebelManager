@@ -1,12 +1,11 @@
 package com.Sydorenko.model;
 
-import org.springframework.security.core.GrantedAuthority;
+/** Potential types of users roles (authorities)
+ * @author Oleksandr Sydorenko
+ */
 
-public enum Role implements GrantedAuthority {
-    USER,ADMIN;
+public enum Role  {
+    USER,ADMIN
 
-    @Override
-    public String getAuthority () {
-        return null;
-    }
+
 }

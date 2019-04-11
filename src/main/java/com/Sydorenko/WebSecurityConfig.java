@@ -10,14 +10,14 @@ import org.springframework.security.config.annotation.method.configuration.Enabl
 import org.springframework.security.config.annotation.web.builders.HttpSecurity;
 import org.springframework.security.config.annotation.web.configuration.EnableWebSecurity;
 import org.springframework.security.config.annotation.web.configuration.WebSecurityConfigurerAdapter;
-import org.springframework.security.core.userdetails.User;
-import org.springframework.security.core.userdetails.UserDetails;
-import org.springframework.security.core.userdetails.UserDetailsService;
 import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 import org.springframework.security.crypto.password.PasswordEncoder;
-import org.springframework.security.provisioning.InMemoryUserDetailsManager;
-
 import javax.sql.DataSource;
+/** Spring Security configuration class.
+ * Authentication manager and password encoder definition.
+ * Declaring general rules for HTTP requests.
+ * @author Oleksandr Sydorenko
+ */
 
 @Configuration // аннотация помечающая класс для конфигурации spring context
 @EnableWebSecurity // включение механизма безопасности

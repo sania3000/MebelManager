@@ -17,7 +17,10 @@ import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.PostMapping;
 
 import java.util.Collections;
-
+/** The controller class for handling HTTP requests related to user
+ * registration, login and logout.
+ * @author Oleksandr Sydorenko
+ */
 @Controller
 public class AuthController {
     // Иньектируем сервис для работы с пользователями

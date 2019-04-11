@@ -10,7 +10,12 @@ import org.springframework.stereotype.Repository;
 import org.springframework.transaction.annotation.Transactional;
 
 import java.util.List;
-
+/** The class is a part of the application DAO layer. The purpose of it is
+ * an interaction between the application and the database. It provides methods
+ * for getting the categories objects from the database, saving and deleting
+ * them.
+ * @author Oleksandr Sydorenko
+ */
 @Repository
 public interface CategoryRepository extends CrudRepository<Categories,Long> {
     List<Categories> findAll();

@@ -6,7 +6,17 @@ import org.springframework.boot.builder.SpringApplicationBuilder;
 import org.springframework.boot.web.servlet.support.SpringBootServletInitializer;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.support.ResourceBundleMessageSource;
-
+/** This class is the entry point of the application.
+ * Aside from it defines the application run method
+ * it also provides means for additional application
+ * configuration. The annotation describes the class
+ * as the one can be automatically configured by
+ * Spring Boot and enables automatic components
+ * scanning for registering them in the Spring
+ * application context. The components should be marked
+ * with the appropriate annotations.
+ * @author Oleksandr Sydorenko
+ */
 @SpringBootApplication
 public class Application extends SpringBootServletInitializer {
 

@@ -7,9 +7,12 @@ import com.Sydorenko.model.Furnitures;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
-
 import java.util.List;
-import java.util.Optional;
+/** This class is the FurnitureService interface implementation.
+ * It consists of interface methods, overridden by means of
+ * using corresponding methods of FurnitureRepository.
+ * @author Oleksandr Sydorenko
+ */
 
 @Service
 public class FurnitureServiceImpl implements FurnitureService {

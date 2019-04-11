@@ -1,7 +1,12 @@
 package com.Sydorenko.service;
 
 import com.Sydorenko.model.Categories;
-import org.springframework.transaction.annotation.Transactional;
+/** This interface is a service interface. It is an intermediary
+ * between DAO class and controller. It declares general actions
+ * can be performed to the Category objects and which reproduce the
+ * repository methods.
+ * @author Oleksandr Sydorenko
+ */
 
 import java.util.List;
 

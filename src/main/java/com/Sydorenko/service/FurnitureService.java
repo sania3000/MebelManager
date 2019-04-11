@@ -5,7 +5,12 @@ import com.Sydorenko.model.Categories;
 import com.Sydorenko.model.Furnitures;
 
 import java.util.List;
-import java.util.Optional;
+/** This interface is a service interface. It is an intermediary
+ * between DAO class and controller. It declares general actions
+ * can be performed to the Furniture objects and which reproduce the
+ * repository methods.
+ * @author Oleksandr Sydorenko
+ */
 
 public interface FurnitureService {
     List<Furnitures> findAll();

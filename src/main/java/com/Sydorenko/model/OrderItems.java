@@ -1,7 +1,17 @@
 package com.Sydorenko.model;
 
 import javax.persistence.*;
-
+/** This class is the entry point of the application.
+ * Aside from it defines the application run method
+ * it also provides means for additional application
+ * configuration. The annotation describes the class
+ * as the one can be automatically configured by
+ * Spring Boot and enables automatic components
+ * scanning for registering them in the Spring
+ * application context. The components should be marked
+ * with the appropriate annotations.
+ * @author Oleksandr Sydorenko
+ */
 @Entity
 @Table(name = "orders_item",schema = "store")
 public class OrderItems {

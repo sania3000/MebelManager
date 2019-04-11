@@ -4,7 +4,11 @@ import com.Sydorenko.dao.CategoryRepository;
 import com.Sydorenko.model.Categories;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
-import org.springframework.transaction.annotation.Transactional;
+/** This class is the CategoryService interface implementation.
+ * It consists of interface methods, overridden by means of
+ * using corresponding methods of CategoryRepository.
+ * @author Oleksandr Sydorenko
+ */
 
 import java.util.List;
 @Service

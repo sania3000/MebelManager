@@ -9,12 +9,13 @@ import org.springframework.security.core.authority.SimpleGrantedAuthority;
 import org.springframework.security.core.userdetails.UserDetails;
 import org.springframework.security.core.userdetails.UserDetailsService;
 import org.springframework.security.core.userdetails.UsernameNotFoundException;
-import org.springframework.security.web.authentication.switchuser.SwitchUserGrantedAuthority;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
-
 import java.util.HashSet;
 import java.util.Set;
+/** The implementation of Spring Security User Details Service
+ * @author Oleksandr Sydorenko
+ */
 @Service
 public class UserDetailsServiceImpl implements UserDetailsService {
     @Autowired

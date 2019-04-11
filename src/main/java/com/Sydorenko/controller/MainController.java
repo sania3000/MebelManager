@@ -9,7 +9,9 @@ import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 
-
+/** The controller class for handling general HTTP requests
+ * @author Oleksandr Sydorenko
+ */
 @Controller
 public class MainController {
 

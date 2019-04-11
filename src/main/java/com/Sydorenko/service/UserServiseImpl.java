@@ -4,8 +4,12 @@ import com.Sydorenko.dao.UserRepository;
 import com.Sydorenko.model.User;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
-
 import java.util.List;
+/** This class is the UserService interface implementation.
+ * It consists of interface methods, overridden by means of
+ * using corresponding methods of UserRepository.
+ * @author Oleksandr Sydorenko
+ */
 @Service
 public class UserServiseImpl implements UserService {
     @Autowired

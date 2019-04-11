@@ -6,7 +6,7 @@ import com.Sydorenko.model.User;
 import java.util.List;
 
 /**
- * @author Александр
+ * @author Oleksandr Sydorenko
  * Интерфейс для взаимодействия с репозиторием.
  */
 public interface UserService {
